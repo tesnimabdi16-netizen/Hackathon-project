@@ -121,3 +121,10 @@ Google Fonts - Plus Jakarta Sans just hits different
 ## Live Demo
 https://tesnimabdi16-netizen.github.io/Hackathon-project/
 
+## home page
+## Donors demo
+## Our Mission demonstration 
+
+## deployment
+
+
