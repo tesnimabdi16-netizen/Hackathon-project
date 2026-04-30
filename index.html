@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AidChain | Infinite Humanitarian Protocol</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-left">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+            title="Toggle dark/light mode"
+          >
+            <i class="fa-solid fa-moon" id="themeIcon"></i>
+          </button>
+          <div class="logo" onclick="route('home')">AidChain<span>.</span></div>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a onclick="route('home')" id="lnk-home" class="active">PROTOCOL</a>
+          </li>
+          <li><a onclick="route('about')" id="lnk-about">THE MISSION</a></li>
+          <li>
+            <a onclick="route('missions')" id="lnk-missions">DEPLOYMENTS</a>
+          </li>
+          <li><a onclick="route('donors')" id="lnk-donors">THE LEDGER</a></li>
+        </ul>
+        <button
+          class="btn-gold"
+          style="padding: 12px 28px"
+          onclick="route('home')"
+        >
+          Connect Aid
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section id="home-view" class="page-engine active">
+        <div class="hero">
+          <div class="hero-stage" id="heroStage"></div>
+          <div class="hero-vignette"></div>
+          <div class="hero-content">
+            <p class="hero-kicker">VERIFIED HUMANITARIAN IMPACT</p>
+            <h1>
+              RADICAL<br /><span style="color: var(--primary)">IMPACT.</span>
+            </h1>
+          </div>
+        </div>
+
+        <div class="terminal-wrap" id="impact-terminal">
+          <div class="terminal-glass">
+            <div>
+              <h2
+                style="
+                  font-size: 2.2rem;
+                  margin-bottom: 30px;
+                  letter-spacing: -1px;
+                "
+              >
+                Impact Broadcast
+              </h2>
+
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  gap: 15px;
+                  margin-bottom: 20px;
+                "
+              >
+                <div>
+                  <label class="field-label">DONOR NAME</label>
+                  <input
+                    type="text"
+                    id="inName"
+                    class="field-input"
+                    placeholder="e.g. John Doe"
+                  />
+                </div>
+                <div>
+                  <label class="field-label">COUNTRY</label>
+                  <input
+                    type="text"
+                    id="inCountry"
+                    class="field-input"
+                    placeholder="e.g. Ethiopia"
+                  />
+                </div>
+              </div>
+
+              <div style="margin-bottom: 20px">
+                <label class="field-label">DONATION SECTOR</label>
+                <select id="inSector" class="field-input">
+                  <option value="General Aid">🌍 General Aid</option>
+                  <option value="Education">🎓 Education & Tech</option>
+                  <option value="Medical">🏥 Medical & Vaccines</option>
+                  <option value="Infrastructure">
+                    🏗️ Infrastructure & Water
+                  </option>
+                </select>
+              </div>
+
+              <div style="margin-bottom: 16px">
+                <label class="field-label">AMOUNT (USD)</label>
+                <input
+                  type="number"
+                  id="inAmt"
+                  class="field-input"
+                  placeholder="0.00"
+                />
+              </div>
+
+              <div class="anon-row">
+                <input type="checkbox" id="inAnon" />
+                <label for="inAnon">Donate anonymously</label>
+                <span class="hint"
+                  >Hides your name only — amount stays public</span
+                >
+              </div>
+
+              <button
+                class="btn-gold"
+                style="width: 100%"
+                onclick="executeImpact()"
+              >
+                Initiate Protocol
+              </button>
+            </div>
+
+            <!-- USAGE FLOW TRACKER (bars only, unified gold) -->
+            <div class="flow-panel" id="flowPanel">
+              <div class="flow-head">
+                <span class="pulse"
+                  ><span class="dot"></span> USAGE FLOW · LIVE</span
+                >
+                <span class="flow-total"
+                  >Total deployed <b id="flowTotal">$0</b></span
+                >
+              </div>
+
+              <div class="bars" id="bars"></div>
+
+              <div class="flow-feed">
+                <h5>RECENT ACTIVITY</h5>
+                <div id="feed"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about-view" class="page-engine">
+        <div class="container" style="padding-top: 150px">
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 80px;
+              align-items: center;
+            "
+          >
+            <img
+              src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1000"
+              style="
+                width: 100%;
+                border-radius: 40px;
+                box-shadow: 20px 20px 0 var(--primary);
+              "
+            />
+            <div>
+              <span class="mission-tag">Our Philosophy</span>
+              <h2
+                style="
+                  font-size: 4rem;
+                  font-weight: 800;
+                  margin: 20px 0;
+                  line-height: 1;
+                "
+              >
+                Transparency is<br />the Default.
+              </h2>
+              <p
+                style="
+                  font-size: 1.1rem;
+                  line-height: 1.8;
+                  letter-spacing: 0.3px;
+                  opacity: 0.7;
+                  margin-bottom: 30px;
+                "
+              >
+                The AidChain Protocol was built to bridge the gap between donors
+                and the ground team. By using verifiable ledger technology, we
+                ensure every dollar translates directly into real-world change
+                without the friction of traditional bureaucracy.
+              </p>
+              <button class="btn-gold" onclick="route('home')">
+                Start Your Impact
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MISSIONS -->
+      <section id="missions-view" class="page-engine">
+        <div class="container" style="padding-top: 150px">
+          <div
+            style="text-align: center; max-width: 800px; margin: 0 auto 80px"
+          >
+            <span class="mission-tag">Active Deployments</span>
+            <h2 style="font-size: 4rem; font-weight: 800; margin-top: 20px">
+              Direct Delivery Channels
+            </h2>
+            <p
+              style="
+                font-size: 1.1rem;
+                line-height: 1.8;
+                letter-spacing: 0.3px;
+                opacity: 0.7;
+              "
+            >
+              Each mission is a specific corridor where aid is tracked from
+              broadcast to local delivery.
+            </p>
+          </div>
+          <div class="mission-grid" id="missionGrid"></div>
+        </div>
+      </section>
+
+      <!-- DONORS / LEDGER -->
+      <section id="donors-view" class="page-engine">
+        <div class="container">
+          <div class="donor-tab">
+            <div style="text-align: center">
+              <h4
+                style="
+                  color: var(--primary);
+                  letter-spacing: 5px;
+                  font-weight: 800;
+                "
+              >
+                GLOBAL CONTRIBUTORS
+              </h4>
+              <h2 style="font-size: 3.5rem; margin-top: 10px">
+                The Hall of Impact
+              </h2>
+            </div>
+            <div class="donor-grid" id="donor-ledger"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="logo">AidChain<span>.</span></div>
+            <p
+              style="
+                opacity: 0.6;
+                line-height: 1.8;
+                letter-spacing: 0.3px;
+                margin-top: 20px;
+              "
+            >
+              Verifiable peer-to-peer humanitarian aid. No middlemen, no
+              friction. Direct human impact.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Protocol</h4>
+            <ul class="footer-links">
+              <li onclick="route('home')">Impact Terminal</li>
+              <li>Audit Reports</li>
+              <li onclick="route('donors')">Transparency Ledger</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul class="footer-links">
+              <li onclick="route('about')">Mission</li>
+              <li onclick="route('missions')">Deployments</li>
+              <li>Contact</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Newsletter</h4>
+            <input
+              type="text"
+              placeholder="Email Address"
+              style="
+                width: 100%;
+                padding: 15px;
+                border-radius: 12px;
+                background: #1f1f22;
+                border: 1px solid #333;
+                color: white;
+                margin-bottom: 15px;
+              "
+            />
+            <button class="btn-gold" style="width: 100%; padding: 15px">
+              Subscribe
+            </button>
+          </div>
+        </div>
+        <div
+          style="
+            border-top: 1px solid #222;
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0.5;
+            font-size: 0.75rem;
+          "
+        >
+          <p>© 2026 AIDCHAIN PROTOCOL. ADDIS ABABA, ETHIOPIA.</p>
+          <p>DESIGNED FOR THE FRONTIER</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
