@@ -129,6 +129,6 @@ mission.png
 
 ## deployment
 [deployment1.png](https://github.com/tesnimabdi16-netizen/Hackathon-project/blob/main/deployment1.png)
-
+https://github.com/tesnimabdi16-netizen/Hackathon-project/blob/main/deployment2.png
 
 
