@@ -125,7 +125,7 @@ https://tesnimabdi16-netizen.github.io/Hackathon-project/
 ## Donors demo
 https://github.com/tesnimabdi16-netizen/Hackathon-project/blob/main/donor.png
 ## Our Mission demonstration 
-mission.png
+[mission.png](https://github.com/tesnimabdi16-netizen/Hackathon-project/blob/main/mission.png)
 
 ## deployment
 [deployment1.png](https://github.com/tesnimabdi16-netizen/Hackathon-project/blob/main/deployment1.png)
