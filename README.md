@@ -123,6 +123,7 @@ https://tesnimabdi16-netizen.github.io/Hackathon-project/
 
 ## home page
 ## Donors demo
+donor.png
 ## Our Mission demonstration 
 
 ## deployment
