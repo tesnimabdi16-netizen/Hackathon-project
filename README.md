@@ -127,5 +127,6 @@ https://tesnimabdi16-netizen.github.io/Hackathon-project/
 
 ## deployment
 deployment1.png
+deployment2.png
 
 
